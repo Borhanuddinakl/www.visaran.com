@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Visa Ran Education Abroad</title>
   <style>
-    /* Reset & base */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -17,25 +16,47 @@
       background: #f9f9f9;
       color: #333;
       line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
 
     a {
       color: #0077cc;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
 
-    /* Container */
     .container {
       width: 90%;
       max-width: 1100px;
       margin: auto;
       padding: 20px 0;
+    }
+
+    /* Navigation */
+    nav {
+      background: #003f91;
+      color: white;
+      padding: 12px 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      color: white;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
     }
 
     /* Header */
@@ -52,21 +73,16 @@
     .logo {
       font-size: 1.8rem;
       font-weight: 700;
-      letter-spacing: 1.5px;
       font-family: 'Georgia', serif;
-      cursor: default;
-    }
-
-    .contact-info {
-      font-size: 0.9rem;
     }
 
     .contact-info span {
       display: inline-block;
       margin-left: 15px;
+      font-size: 0.9rem;
     }
 
-    /* Hero Section */
+    /* Hero */
     .hero {
       background: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
       color: white;
@@ -118,8 +134,8 @@
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,74,173,0.1);
       transition: transform 0.3s ease;
-      cursor: default;
     }
+
     .service-item:hover {
       transform: translateY(-6px);
       box-shadow: 0 6px 15px rgba(0,74,173,0.2);
@@ -133,19 +149,52 @@
       padding-bottom: 6px;
     }
 
-    .service-item p {
-      font-size: 1rem;
-      color: #222;
+    /* Contact Form */
+    .contact-form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      max-width: 600px;
+      margin: 0 auto 60px auto;
     }
 
-    /* Contact Section */
+    .contact-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #004aad;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      background: #004aad;
+      color: white;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background: #003f91;
+    }
+
     footer {
       background: #004aad;
       color: white;
       padding: 25px 20px;
       text-align: center;
       font-size: 1rem;
-      letter-spacing: 0.05em;
     }
 
     footer a {
@@ -153,22 +202,35 @@
       font-weight: 600;
     }
 
-    /* Responsive adjustments */
+    /* WhatsApp floating button */
+    .whatsapp-link {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 999;
+      text-decoration: none;
+    }
+
+    /* Responsive */
     @media (max-width: 600px) {
       .hero h1 {
         font-size: 2rem;
       }
-
       .hero p {
         font-size: 1.1rem;
       }
-
-      header {
-        justify-content: center;
+      nav, header {
         text-align: center;
+        flex-direction: column;
       }
-
-      .contact-info {
+      .nav-links {
         margin-top: 10px;
       }
     }
@@ -176,6 +238,19 @@
 </head>
 <body>
 
+  <!-- Navigation -->
+  <nav>
+    <div class="container navbar">
+      <div class="logo">Visa Ran</div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
   <header class="container">
     <div class="logo">Visa Ran Education Abroad</div>
     <div class="contact-info">
@@ -184,43 +259,74 @@
     </div>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
     <h1>Your Gateway to Global Education</h1>
     <p>Expert consultancy and visa guidance for studying abroad in top countries. We make your education dreams come true!</p>
   </section>
 
-  <section class="services container">
+  <!-- Services -->
+  <section class="services container" id="services">
     <h2>Our Services by Country</h2>
     <div class="service-list">
-
       <div class="service-item">
         <h3>Study in Canada</h3>
         <p>University admissions, visa applications, and scholarship assistance for Canadian institutions.</p>
       </div>
-
       <div class="service-item">
         <h3>Study in Australia</h3>
-        <p>Comprehensive support for choosing courses, applying for student visas, and finding accommodation in Australia.</p>
+        <p>Support with course selection, visa process, and settling in Australia.</p>
       </div>
-
       <div class="service-item">
         <h3>Study in New Zealand</h3>
-        <p>Guidance on education pathways, visa processes, and post-study work opportunities in New Zealand.</p>
+        <p>Guidance on top institutions, visa processes, and student life in NZ.</p>
       </div>
-
       <div class="service-item">
         <h3>Study in United Kingdom</h3>
-        <p>Assistance with university applications, visa documentation, and scholarship opportunities in the UK.</p>
+        <p>Full assistance from choosing the right university to visa documentation.</p>
       </div>
-
       <div class="service-item">
         <h3>Study in USA</h3>
-        <p>Expert advice on admissions, standardized tests, visa interviews, and finding the right university in the USA.</p>
+        <p>Admissions counseling, visa prep, and university placement in the USA.</p>
       </div>
+      <div class="service-item">
+        <h3>Why Choose Visa Ran?</h3>
+        <p>We offer honest, personalized guidance and ongoing support throughout your education journey.</p>
+      </div>
+      <div class="service-item">
+        <h3>Best Consultancy Firm Services</h3>
+        <p>✔ Free counseling<br />
+           ✔ SOP help<br />
+           ✔ University selection<br />
+           ✔ Pre-departure & arrival help<br />
+           ✔ Job & visa guidance</p>
+      </div>
+    </div>
 
+    <div style="text-align:center; margin-top: 40px;">
+      <h2 style="color:#004aad;">Ready to Start Your Journey?</h2>
+      <p>Talk to our expert advisors today!</p>
+      <a href="mailto:visaran.newzealand@gmail.com" style="display:inline-block; background:#004aad; color:#fff; padding:12px 24px; margin-top:10px; border-radius:6px;">Contact Us</a>
     </div>
   </section>
 
+  <!-- Contact Form -->
+  <section class="contact-form container" id="contact">
+    <h2>Contact Us</h2>
+    <form action="mailto:visaran.newzealand@gmail.com" method="POST" enctype="text/plain">
+      <input type="text" name="Name" placeholder="Your Full Name" required />
+      <input type="email" name="Email" placeholder="Your Email" required />
+      <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- WhatsApp Link -->
+  <a class="whatsapp-link" href="https://wa.me/6421595687" target="_blank">
+    💬 Chat with Us
+  </a>
+
+  <!-- Footer -->
   <footer>
     &copy; 2025 Visa Ran Education Abroad | Phone: +64 215 956 87 | Email: <a href="mailto:visaran.newzealand@gmail.com">visaran.newzealand@gmail.com</a>
   </footer>
